@@ -3,7 +3,7 @@
 스프링을 사용해서 다른 REST API와 상호작용하는 방법을 알아보자
 
 - **RestTemplate** : 스프링 프레임워크에서 제공하는 간단하고 동기화된 REST 클라이언트
-- **Traverson** : 스프링 HATEOAS에서 제공하는 하이퍼링크를 인식하는 동기화 REST 클라이어늩로 같은 이름의 자바스크립트 라이브러리로부터 비롯된 것이다
+- **Traverson** : 스프링 HATEOAS에서 제공하는 하이퍼링크를 인식하는 동기화 REST 클라이언트로 같은 이름의 자바스크립트 라이브러리로부터 비롯된 것이다
 - **WebClient** : 스프링 5에서 소개된 반응형 비동기 REST 클라이언트 (11장에서 더 알아보자)
 
 ## 7.1 RestTemplate으로 REST 엔드 포인트 사용하기
@@ -242,19 +242,6 @@ public Ingredient addIngredient(Ingredient ingredient) {
                               ingredient,
                               Ingredient.class);
   }
-```
-
-```java
-public Ingredient addIngredient(Ingredient ingredient) {
-    String ingredientsUrl = traverson
-                            .follow("ingredients")
-                            .asLink()
-                            .getHref();
-
-    return rest.postForObject(ingredientsUrl,
-                              ingredient,
-                              Ingredient.class);
-}
 ```
 
 ## 요약
